@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class examqv1 {
+public class codding10 {
     public static void main(String[] args) {
        Movie movie1 = new Movie("inception", 2010, "Sci-fi",8.8 );
        Movie movie2 = new Movie("Titanik", 2019, "drama ",7.9 );
