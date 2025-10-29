@@ -1,18 +1,21 @@
-public class codding11 {
-    public static void main(String[] args) {movie myMovie = new movie();
+// Главный класс
+public class cd {
+    public static void main(String[] args) {
+        // Создаем объект фильма с конкретной информацией
+        Movie myMovie = new Movie();
 
-        // Выводим все поля на экран
+        // Выводим информацию о фильме
         System.out.println("Название: " + myMovie.name);
         System.out.println("Жанр: " + myMovie.genre);
-        System.out.println("Год: " + myMovie.year);
+        System.out.println("Дата выпуска: " + myMovie.year);
         System.out.println("Рейтинг: " + myMovie.rating);
-
-
     }
 }
-class movie {
-    String name = "Terminator ";
-    String genre = "fantasy";
-    int year = 2008;
-    double rating = 9.9;
+
+// Класс Movie хранит информацию о фильме
+class Movie {
+    String name = "Titanic";      // Название фильма
+    String genre = "Historical";  // Жанр
+    int year = 2012;              // Дата выпуска
+    double rating = 8.9;          // Рейтинг
 }

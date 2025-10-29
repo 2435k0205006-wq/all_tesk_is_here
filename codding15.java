@@ -3,12 +3,12 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
-class Movie {
+class Film {
     private String title;
     private String genre;
     private int year;
 
-    public Movie(String title, String genre, int year) {
+    public Film(String title, String genre, int year) {
         this.title = title;
         this.genre = genre;
         this.year = year;
@@ -29,8 +29,8 @@ class Movie {
     }
 }
 
-public class codding13 {
-    private static List<Movie> movies = new ArrayList<>();
+public class codding15 {
+    private static List<Film> films = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -55,10 +55,10 @@ public class codding13 {
             }
 
             switch (choice) {
-                case 1 -> addMovie();
-                case 2 -> showMovies();
-                case 3 -> updateMovie();
-                case 4 -> deleteMovie();
+                case 1 -> addFilm();
+                case 2 -> showFilms();
+                case 3 -> updateFilm();
+                case 4 -> deleteFilm();
                 case 5 -> sortByYear();
                 case 6 -> searchByGenre();
                 case 0 -> {
@@ -70,7 +70,7 @@ public class codding13 {
         }
     }
 
-    private static void addMovie() {
+    private static void addFilm() {
         System.out.print("Введите название: ");
         String title = scanner.nextLine();
         System.out.print("Введите жанр: ");
@@ -85,28 +85,28 @@ public class codding13 {
                 System.out.println("Введите корректное число для года!");
             }
         }
-        movies.add(new Movie(title, genre, year));
+        films.add(new Film(title, genre, year));
         System.out.println("Фильм добавлен!");
     }
 
-    private static void showMovies() {
-        if (movies.isEmpty()) {
+    private static void showFilms() {
+        if (films.isEmpty()) {
             System.out.println("Фильмы отсутствуют.");
             return;
         }
         System.out.println("\nСписок фильмов:");
-        movies.forEach(System.out::println);
+        films.forEach(System.out::println);
     }
 
-    private static void updateMovie() {
+    private static void updateFilm() {
         System.out.print("Введите название фильма для обновления: ");
         String title = scanner.nextLine();
-        for (Movie movie : movies) {
-            if (movie.getTitle().equalsIgnoreCase(title)) {
+        for (Film film : films) {
+            if (film.getTitle().equalsIgnoreCase(title)) {
                 System.out.print("Новое название: ");
-                movie.setTitle(scanner.nextLine());
+                film.setTitle(scanner.nextLine());
                 System.out.print("Новый жанр: ");
-                movie.setGenre(scanner.nextLine());
+                film.setGenre(scanner.nextLine());
                 int year;
                 while (true) {
                     System.out.print("Новый год: ");
@@ -117,7 +117,7 @@ public class codding13 {
                         System.out.println("Введите корректное число для года!");
                     }
                 }
-                movie.setYear(year);
+                film.setYear(year);
                 System.out.println("Фильм обновлен!");
                 return;
             }
@@ -125,10 +125,10 @@ public class codding13 {
         System.out.println("Фильм не найден!");
     }
 
-    private static void deleteMovie() {
+    private static void deleteFilm() {
         System.out.print("Введите название фильма для удаления: ");
         String title = scanner.nextLine();
-        boolean removed = movies.removeIf(movie -> movie.getTitle().equalsIgnoreCase(title));
+        boolean removed = films.removeIf(film -> film.getTitle().equalsIgnoreCase(title));
         if (removed) {
             System.out.println("Фильм удален.");
         } else {
@@ -137,16 +137,16 @@ public class codding13 {
     }
 
     private static void sortByYear() {
-        movies.sort(Comparator.comparingInt(Movie::getYear));
+        films.sort(Comparator.comparingInt(Film::getYear));
         System.out.println("Фильмы отсортированы по году:");
-        showMovies();
+        showFilms();
     }
 
     private static void searchByGenre() {
         System.out.print("Введите жанр для поиска: ");
         String genre = scanner.nextLine();
-        List<Movie> result = movies.stream()
-                .filter(movie -> movie.getGenre().equalsIgnoreCase(genre))
+        List<Film> result = films.stream()
+                .filter(film -> film.getGenre().equalsIgnoreCase(genre))
                 .toList();
         if (result.isEmpty()) {
             System.out.println("Фильмы с таким жанром не найдены.");
