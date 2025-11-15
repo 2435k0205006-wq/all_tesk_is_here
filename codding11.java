@@ -1,5 +1,5 @@
 // Главный класс
-public class cd {
+public class codding11 {
     public static void main(String[] args) {
         // Создаем объект фильма с конкретной информацией
         Movie myMovie = new Movie();

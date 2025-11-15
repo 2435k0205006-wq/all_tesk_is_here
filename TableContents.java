@@ -10,7 +10,9 @@ public class TableContents{
                 {"codding4", "логин "},
                 {"codding5", "управление финансами "},
                 {"codding6", " пранировщик дня "},
-                {"codding7", "черновик "},
+                {"codding7", "ctepen"},
+
+
         };
 
         Scanner scanner = new Scanner(System.in);
